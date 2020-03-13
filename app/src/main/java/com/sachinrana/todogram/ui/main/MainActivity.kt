@@ -1,8 +1,8 @@
-package com.sachinrana.todogram
+package com.sachinrana.todogram.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.sachinrana.todogram.ui.main.MainFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.sachinrana.todogram.R
 
 class MainActivity : AppCompatActivity() {
 
