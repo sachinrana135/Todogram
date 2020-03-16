@@ -34,47 +34,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.appcompat:appcompat:$appcompatVersion"
-    implementation "androidx.core:core-ktx:$ktxVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
-    implementation "androidx.cardview:cardview:$cardview_version"
-    implementation "com.android.support:recyclerview-v7:$material_version"
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$cardview_version"
-    implementation "com.android.support:appcompat-v7:$material_version"
 
-    //Network
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    //implementation 'com.google.code.gson:gson:2.8.5'
-    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutine_adapter"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation libraries
+    kapt librariesKapt
 
-    //Picasso
-    implementation "com.squareup.picasso:picasso:$picasso_version"
-
-    //Shimmer
-    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
-    implementation "com.todkars:shimmer-recyclerview:$shimmer_recyclerview_version"
-    implementation "de.hdodenhof:circleimageview:$circular_image_version"
-
-    //Lifecycle and Livedata
-    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
-
-    //Dagger
-    implementation "com.google.dagger:dagger-android:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-
-    // Coroutine
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutine"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutine"
-
-    testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$junitxVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoxVersion"
+    testImplementation testLibraries
+    androidTestImplementation androidTestLibraries
 }

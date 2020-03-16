@@ -14,6 +14,7 @@ import com.sachinrana.todogram.data.Resource
 import com.sachinrana.todogram.data.Status
 import com.sachinrana.todogram.data.models.TodoEntity
 import com.sachinrana.todogram.factory.ViewModelFactory
+import kotlinx.android.synthetic.main.layout_error.*
 import kotlinx.android.synthetic.main.main_fragment.*
 import javax.inject.Inject
 
@@ -46,9 +47,20 @@ class MainFragment : Fragment() {
         viewModel.getTodoList()
         viewModel.todoListLiveData.observe(this, observer)
         mainLayout = main
+
+        initListner()
+
+    }
+
+    private fun initListner() {
         mainLayout.setOnRefreshListener {
             viewModel.getTodoList()
         }
+
+        txtReload.setOnClickListener {
+            viewModel.getTodoList()
+        }
+
     }
 
     private var observer = Observer<Resource<List<TodoEntity>>> {

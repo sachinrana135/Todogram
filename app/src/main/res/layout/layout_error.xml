@@ -20,6 +20,7 @@
         android:layout_marginTop="@dimen/spacing_normal" />
 
     <TextView
+        android:id="@+id/txtReload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_reload"
