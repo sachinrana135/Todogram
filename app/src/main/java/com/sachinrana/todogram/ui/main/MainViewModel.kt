@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.sachinrana.todogram.data.Resource
 import com.sachinrana.todogram.data.models.TodoEntity
 import com.sachinrana.todogram.data.repository.TodoRepository
+import com.sachinrana.todogram.utils.userNameMap
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -29,8 +30,9 @@ class MainViewModel
     fun getTodoList() {
 
         todoList.value = Resource.loading(null)
-        job = viewModelScope.launch(handler) {
-            var list: List<TodoEntity> = repository.getTodoList()
+        viewModelScope.launch(handler) {
+            var list: List<TodoEntity> =
+                repository.getTodoList().apply { forEach { it.userName = userNameMap[it.userId] } }
             list?.let {
                 if (list.isEmpty()) todoList.value = Resource.empty()
                 else todoList.value = Resource.success(it)
